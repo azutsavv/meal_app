@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:meal_app_navigation/category_item.dart';
-import 'package:meal_app_navigation/catogory_screen_meals.dart';
-import './dummy_data.dart';
+import 'package:meal_app_navigation/widgets/category_item.dart';
+import 'package:meal_app_navigation/screens/catogory_screen_meals.dart';
+import '../dummy_data.dart';
 
 class categoryScreen extends StatelessWidget {
   const categoryScreen({super.key});

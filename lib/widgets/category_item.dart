@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'catogory_screen_meals.dart';
-import 'fonts/fonts.dart';
+import '../screens/catogory_screen_meals.dart';
+import '../fonts/fonts.dart';
 
 class categoryItem extends StatelessWidget {
   final String id;
@@ -9,10 +9,13 @@ class categoryItem extends StatelessWidget {
   final Color colors;
   const categoryItem({super.key, required this.colors, required this.title, required this.id});
 void selectCategory(BuildContext ctx) {
-    Navigator.of(ctx).push(
-      MaterialPageRoute(builder: (_) {
-        return CategoryMealScreen(categoryID: id, title: title,);
-      }),
+    Navigator.of(ctx).pushNamed(
+      'catmeal', 
+      arguments: {
+        'id' :id,
+        'title':title
+      }
+     
     );
   }
   @override
