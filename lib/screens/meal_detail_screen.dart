@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:meal_app_navigation/dummy_data.dart';
 import 'package:meal_app_navigation/fonts/fonts.dart';
-import 'package:meal_app_navigation/models/meal.dart';
+
 
 class MealDetailDcreen extends StatelessWidget {
+  static const routeName = '/MealDetailScreen';
   const MealDetailDcreen({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +116,7 @@ class MealDetailDcreen extends StatelessWidget {
                                 leading: Text('${(index +1)} .'),
                                 title: Text(selectedMeal.steps[index]),
                               ),
-                              Divider(),
+                              const Divider(),
                             ],
                             
                           ),
