@@ -1,8 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:meal_app_navigation/widgets/category_item.dart';
 import 'package:meal_app_navigation/dummy_data.dart';
 import 'package:meal_app_navigation/widgets/meal_item.dart';
 
@@ -30,6 +26,7 @@ class CategoryMealScreen extends StatelessWidget {
            color: Colors.pink.shade50,
            child: ListView.builder(itemBuilder: (ctx , index){
             return MealItem(
+              id: catogeryMeals[index].id,
               title:catogeryMeals[index].title, 
               imgurl: catogeryMeals[index].imageUrl, 
               duration: catogeryMeals[index].duration, 
