@@ -79,25 +79,27 @@ class MealItem extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
+                
                   Positioned(
-                    bottom: 15,
-                    right: 20,
+                    bottom: 5 ,
+                    right: 35,
                     child: Container(
-                      width: 280,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.black54,
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        title,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
+                        width: 320,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.pink.shade50,
                         ),
-                        overflow: TextOverflow.fade,
-                        softWrap: true,
-                      ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 24,
+                            color: Colors.black,
+                          ),
+                          overflow: TextOverflow.fade,
+                          softWrap: true,
+                        ),
+                      
                     ),
                   ),
                 ],
