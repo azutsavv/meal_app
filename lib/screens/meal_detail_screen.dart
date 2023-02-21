@@ -13,8 +13,11 @@ class MealDetailDcreen extends StatelessWidget {
     final mealID = ModalRoute.of(context)?.settings.arguments as String;
     final selectedMeal = DUMMY_MEALS.firstWhere((meal) => meal.id == mealID);
     return Scaffold(
+      backgroundColor: Colors.pink.shade50,
       appBar: AppBar(
         title: Text(selectedMeal.title),
+        backgroundColor: Colors.deepPurpleAccent.shade700,
+        
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -46,7 +49,7 @@ class MealDetailDcreen extends StatelessWidget {
               height: 230,
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Colors.blue.shade700,
+                  color: Colors.deepPurpleAccent.shade700,
                   style: BorderStyle.solid,
                   width: 3
                 ),
@@ -88,7 +91,7 @@ class MealDetailDcreen extends StatelessWidget {
                 height: 300,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.blue.shade700,
+                    color: Colors.deepPurpleAccent.shade700,
                     style: BorderStyle.solid,
                     width: 3
                   ),
