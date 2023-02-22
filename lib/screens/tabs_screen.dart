@@ -49,13 +49,13 @@ class _TabScreenState extends State<TabScreen> {
             items:  [
         BottomNavigationBarItem(
             backgroundColor: Colors.purple.shade700,
-            icon: Icon(Icons.category_outlined), label: 'Category'),
+            icon: const Icon(Icons.category_outlined), label: 'Category'),
         BottomNavigationBarItem(
           backgroundColor: Colors.purple.shade700,
-            icon: Icon(Icons.favorite_outline), label: 'Favourite')
+            icon: const Icon(Icons.favorite_outline), label: 'Favourite')
       ]),
 
-      drawer: MainDrawer(),
+      drawer: const MainDrawer(),
     );
   }
 }
