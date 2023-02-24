@@ -9,6 +9,27 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Affordability affordability;
   final Complexity complexity;
+  final Function removeItem;
+
+  const MealItem(
+      {super.key,
+      required this.id,
+      required this.title,
+      required this.imgurl,
+      required this.duration,
+      required this.affordability,
+      required this.complexity,
+      required this.removeItem});
+
+  void SelectMeal(BuildContext context) {
+    Navigator.of(context)
+        .pushNamed(MealDetailDcreen.routeName, arguments: id)
+        .then((result) {
+      if (result != null) {
+        removeItem(result);
+      }
+    });
+  }
 
   String get complexitytext {
     switch (complexity) {
@@ -38,19 +59,6 @@ class MealItem extends StatelessWidget {
     }
   }
 
-  const MealItem(
-      {super.key,
-      required this.id,
-      required this.title,
-      required this.imgurl,
-      required this.duration,
-      required this.affordability,
-      required this.complexity});
-
-  void SelectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed(MealDetailDcreen.routeName,arguments: id);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -77,27 +85,25 @@ class MealItem extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                
                   Positioned(
-                    bottom: 5 ,
+                    bottom: 5,
                     right: 35,
                     child: Container(
-                        width: 320,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.pink.shade50,
+                      width: 320,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.pink.shade50,
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          color: Colors.black,
                         ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          title,
-                          style: const TextStyle(
-                            fontSize: 24,
-                            color: Colors.black,
-                          ),
-                          overflow: TextOverflow.fade,
-                          softWrap: true,
-                        ),
-                      
+                        overflow: TextOverflow.fade,
+                        softWrap: true,
+                      ),
                     ),
                   ),
                 ],

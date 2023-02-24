@@ -1,32 +1,73 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app_navigation/screens/category_scree.dart';
+import 'package:meal_app_navigation/dummy_data.dart';
+import 'package:meal_app_navigation/models/meal.dart';
 import 'package:meal_app_navigation/screens/catogory_screen_meals.dart';
 import 'package:meal_app_navigation/screens/filters_screen.dart';
 import 'package:meal_app_navigation/screens/meal_detail_screen.dart';
 import 'package:meal_app_navigation/screens/tabs_screen.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+
+  Map<String, bool> _filter= {
+    'gluten': false ,
+    'lactose': false,
+    'vagan': false,
+    'vegetarian': false,
+  };
+
+  List<Meal> _availableMeal = DUMMY_MEALS;
+
+  void _setFilter(Map<String, bool> filterdata) {
+    setState(() {
+      _filter = filterdata;
+
+      _availableMeal = DUMMY_MEALS.where((meal) {
+        if (_filter['gluten']! && !meal.isGlutenFree) {
+          return false;
+        }
+
+        if (_filter['lactose']! && !meal.isLactoseFree) {
+          return false;
+        }
+
+        if (_filter['vegan']! && !meal.isVegan) {
+          return false;
+        }
+
+        if (_filter['vegetarian']! && !meal.isVegetarian) {
+          return false;
+        }
+
+        return true;
+      }).toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, 
       initialRoute: './',
       routes: {
-        './':(context) => TabScreen(),
-        FilterScreen.routeName : (context) => FilterScreen(),
-        CategoryMealScreen.routeName:(context) => CategoryMealScreen(),
-        MealDetailDcreen.routeName:(context) =>  MealDetailDcreen(),
-          },
-
+        './': (context) => TabScreen(),
+        FilterScreen.routeName: (context) =>
+            FilterScreen(saveFIlter: _setFilter ),
+        CategoryMealScreen.routeName: (context) =>
+            CategoryMealScreen(_availableMeal),
+        MealDetailDcreen.routeName: (context) => MealDetailDcreen(),
+      },
     );
   }
 }
- 

@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:meal_app_navigation/dummy_data.dart';
 import 'package:meal_app_navigation/fonts/fonts.dart';
 
-
 class MealDetailDcreen extends StatelessWidget {
   static const routeName = '/MealDetailScreen';
   const MealDetailDcreen({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,6 @@ class MealDetailDcreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(selectedMeal.title),
         backgroundColor: Colors.deepPurpleAccent.shade700,
-        
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -28,7 +25,6 @@ class MealDetailDcreen extends StatelessWidget {
               shadowColor: Colors.black,
               borderRadius: BorderRadius.circular(12),
               child: Container(
-                
                 width: double.maxFinite,
                 height: 280,
                 decoration: BoxDecoration(
@@ -44,22 +40,19 @@ class MealDetailDcreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical:8.0, horizontal: 8),
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8),
             child: Container(
               height: 230,
               decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.deepPurpleAccent.shade700,
-                  style: BorderStyle.solid,
-                  width: 3
-                ),
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.blueGrey.shade50
-          
-          
-              ),         
-                child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                  border: Border.all(
+                      color: Colors.deepPurpleAccent.shade700,
+                      style: BorderStyle.solid,
+                      width: 3),
+                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.blueGrey.shade50),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                 child: Column(
                   children: [
                     const title_font(text: 'Idgredients'),
@@ -71,11 +64,9 @@ class MealDetailDcreen extends StatelessWidget {
                         itemBuilder: (context, index) => Column(
                           children: [
                             ListTile(
-                              leading: Text('${(index +1)}'),
-                               title: Text(selectedMeal.ingredients[index]),
-                              
+                              leading: Text('${(index + 1)}'),
+                              title: Text(selectedMeal.ingredients[index]),
                             ),
-                            
                           ],
                         ),
                       ),
@@ -85,52 +76,50 @@ class MealDetailDcreen extends StatelessWidget {
               ),
             ),
           ),
-           Padding(
-             padding: const EdgeInsets.symmetric(vertical:8.0, horizontal: 10),
-             child: Container(
-                height: 300,
-                decoration: BoxDecoration(
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
+            child: Container(
+              height: 300,
+              decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.deepPurpleAccent.shade700,
-                    style: BorderStyle.solid,
-                    width: 3
-                  ),
+                      color: Colors.deepPurpleAccent.shade700,
+                      style: BorderStyle.solid,
+                      width: 3),
                   borderRadius: BorderRadius.circular(12),
-                  color: Colors.blueGrey.shade50
-                   
-                   
-                ),         
-                  child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                  child: Column(
-                    children: [
-                      const title_font(text: 'Steps'),
-                      Container(
-                        height: 230,
-                        width: double.maxFinite,
-                        child: ListView.builder(
-                          itemCount: selectedMeal.steps.length,
-                          itemBuilder: (context, index) => Column(
-                            children: [
-                              ListTile(
-                                leading: Text('${(index +1)} .'),
-                                title: Text(selectedMeal.steps[index]),
-                              ),
-                              const Divider(),
-                            ],
-                            
-                          ),
-                          
+                  color: Colors.blueGrey.shade50),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                child: Column(
+                  children: [
+                    const title_font(text: 'Steps'),
+                    Container(
+                      height: 230,
+                      width: double.maxFinite,
+                      child: ListView.builder(
+                        itemCount: selectedMeal.steps.length,
+                        itemBuilder: (context, index) => Column(
+                          children: [
+                            ListTile(
+                              leading: Text('${(index + 1)} .'),
+                              title: Text(selectedMeal.steps[index]),
+                            ),
+                            const Divider(),
+                          ],
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 ),
               ),
-           ),
-      
-        ]
-        ),
+            ),
+          ),
+        ]),
+      ),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        Navigator.of(context).pop(mealID);
+      },
+      child: const Icon(Icons.delete)
       ),
     );
   }

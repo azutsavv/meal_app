@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:meal_app_navigation/widgets/category_item.dart';
-import 'package:meal_app_navigation/screens/catogory_screen_meals.dart';
 import '../dummy_data.dart';
 
 class categoryScreen extends StatelessWidget {
@@ -13,7 +10,7 @@ class categoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView(
         padding: EdgeInsets.all(5),
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200,
           childAspectRatio: 1,
           crossAxisSpacing: 20,
