@@ -4,7 +4,9 @@ import 'package:meal_app_navigation/fonts/fonts.dart';
 
 class MealDetailDcreen extends StatelessWidget {
   static const routeName = '/MealDetailScreen';
-  const MealDetailDcreen({super.key});
+  final Function toogleFavourite;
+  final Function isfavourite;
+  const MealDetailDcreen(this.toogleFavourite, this.isfavourite );
 
   @override
   Widget build(BuildContext context) {
@@ -116,11 +118,9 @@ class MealDetailDcreen extends StatelessWidget {
           ),
         ]),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        Navigator.of(context).pop(mealID);
-      },
-      child: const Icon(Icons.delete)
-      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed:() => toogleFavourite(mealID),
+          child: Icon(isfavourite(mealID) ? Icons.star : Icons.star_border)),
     );
   }
 }
